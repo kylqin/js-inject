@@ -1,9 +1,11 @@
 {
   "name": "@kylqin/inject",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Javascript object fields injection tool.",
+  "type": "module",
   "main": "index.js",
   "scripts": {
+    "style": "eslint *.js **/*.js --fix",
     "prepack": "npmignore --auto",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,6 +30,10 @@
   },
   "homepage": "https://github.com/kylqin/js-inject#readme",
   "devDependencies": {
+    "eslint": "^8.30.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "gulp": "^3.9.1",
     "npmignore": "^0.3.0"
   },
   "dependencies": {
