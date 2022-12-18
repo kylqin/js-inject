@@ -1,0 +1,36 @@
+{
+  "name": "@kylqin/inject",
+  "version": "0.0.1",
+  "description": "A Javascript object fields injection tool.",
+  "main": "index.js",
+  "scripts": {
+    "prepack": "npmignore --auto",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "ignore": [
+      "!build/",
+      "src/",
+      "test/"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kylqin/js-inject.git"
+  },
+  "keywords": [
+    "inject"
+  ],
+  "author": "Kyle Qin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kylqin/js-inject/issues"
+  },
+  "homepage": "https://github.com/kylqin/js-inject#readme",
+  "devDependencies": {
+    "npmignore": "^0.3.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
