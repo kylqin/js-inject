@@ -22,9 +22,9 @@ const INJECT_SPEC = {
 const createSpecUtils = (spec) => {
   // (key, value) => (pc, ref)
   const objKey = (key, value) => [
-    value && key !== spec.object.key && key !== spec.object.merge && key.startsWith(spec.object.key)
-      ? key.slice(spec.object.key.length)
-      : '',
+    value && key !== spec.object.key && key !== spec.object.merge && key.startsWith(spec.object.key) ?
+    key.slice(spec.object.key.length) :
+    '',
     value,
   ];
   // (key, value) => (pc, ref)
@@ -118,7 +118,7 @@ const createPCUtils = (spec) => {
  */
 export default {
   provide,
-  inject,
+  build,
 };
 
 const GlobalContext = Object.create(null);
@@ -152,7 +152,7 @@ const buildSpec = (parserOptions) => {
   };
 };
 
-function inject(object, parserOptions = DefaultParserOptions) {
+function build(object, parserOptions = DefaultParserOptions) {
   const clonedObject = cloneDeep(object);
   const memorizedPaths = Object.create(null);
   const tracedPCs = [];
@@ -190,7 +190,7 @@ function inject(object, parserOptions = DefaultParserOptions) {
     }
   };
 
-  memo([object], 0);
+  memo([clonedObject], 0);
 
   const update = (obj, context = GlobalContext, options = DefaultOptions) => {
     const permit = createPermit(context, options);
@@ -211,7 +211,7 @@ function inject(object, parserOptions = DefaultParserOptions) {
         unset(obj, pcUtils.parse(joinedPCs, true));
       }
     }
-    return obj;
+    return cloneDeep(obj);
   };
 
   return {
